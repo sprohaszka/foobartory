@@ -1,0 +1,25 @@
+plugins {
+  id 'application' 
+  id 'org.jetbrains.kotlin.jvm' version '1.4.21'
+}
+
+repositories {
+  jcenter() 
+}
+
+dependencies {
+  //implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2'
+  testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.7.0'
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+  kotlinOptions.jvmTarget = "11"
+}
+
+application {
+  mainClass = 'alma.FoobartoryKt' 
+}
+
+test {
+  useJUnitPlatform()
+}
