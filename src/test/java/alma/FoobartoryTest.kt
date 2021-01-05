@@ -17,7 +17,7 @@ class FoobartoryTest {
     val stock = emptyList<Ore>()
 
     // When
-    val result = isEnoughStock(stock, emptyList())
+    val result = isEnoughStock(stock)
 
     // Then
     assertFalse(result)
@@ -30,7 +30,7 @@ class FoobartoryTest {
     val stock = listOf(Bar())
 
     // When
-    val result = isEnoughStock(stock, emptyList())
+    val result = isEnoughStock(stock)
 
     // Then
     assertFalse(result)
@@ -42,7 +42,7 @@ class FoobartoryTest {
     val stock = listOf(Foo(), Bar())
 
     // When
-    val result = isEnoughStock(stock, emptyList())
+    val result = isEnoughStock(stock)
 
     // Then
     assertTrue(result)
@@ -96,7 +96,7 @@ class FoobartoryTest {
     // When
     assertThrows(java.util.NoSuchElementException::class.java) {
       // Then
-      val result = extractFoobarElements()
+      extractFoobarElements()
     }
   }
 

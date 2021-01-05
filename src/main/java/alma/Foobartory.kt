@@ -120,7 +120,7 @@ fun Action.associatedOre() = when(this) {
       else -> null
     }
 
-fun isEnoughStock(stock: List<Ore>, robots: List<Robot>): Boolean =
+fun isEnoughStock(stock: List<Ore>): Boolean =
   groupStock(stock).all { it.value.count() > 0 }
 
 fun extractFoobarElements(): Pair<Foo, Bar> {
@@ -166,7 +166,7 @@ fun findActionToDo(robots: List<Robot>, stock: List<Ore>, assembly: List<FooBar>
     }
     money >= 3 -> Action.MineFoo //Priority when enough money to buy new robot
     canSellFoobar(robots, assembly) -> Action.SellFoobar
-    isEnoughStock(stock, robots) -> {
+    isEnoughStock(stock) -> {
       val (foo, bar) = extractFoobarElements()
       Action.Assemble(foo, bar)
     }
